@@ -1,0 +1,15 @@
+<div class="card h-100">
+    <a *ngIf="item.title" [routerLink]="['/details', item.id]">
+        <img class="card-img-top" *ngIf="item.poster_path != null" [src]="'https://image.tmdb.org/t/p/original'+item?.poster_path" [alt]="item.poster_path">
+        <img class="card-img-top" *ngIf="item.poster_path == null" [src]="defaultImage" [alt]="item.poster_path">
+    </a> 
+    <a *ngIf="!item.title" [routerLink]="['/tvshow', item.id]">
+        <img class="card-img-top" *ngIf="item.poster_path != null" [src]="'https://image.tmdb.org/t/p/original'+item?.poster_path" [alt]="item.poster_path">
+        <img class="card-img-top" *ngIf="item.poster_path == null" [src]="defaultImage" [alt]="item.poster_path">
+    </a> 
+    <div class="card-body">
+        <h4 class="card-title">{{item?.original_title || item?.name}}</h4>
+        <p class="card-text"> Vote Average: {{item?.vote_average }}</p>
+       
+    </div>
+</div>
